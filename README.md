@@ -6,7 +6,7 @@ Live production URL: https://lecompteestbon.wissamkazan.ai/
 
 ## Development
 
-Requires Node.js 22+ and Python 3 for the local preview server. There are no npm runtime dependencies, remote fonts, analytics or backend accounts.
+Requires Node.js 22+ and Python 3 for the local preview server. There are no npm runtime dependencies, remote fonts or backend accounts. Production uses the existing Cloudflare Web Analytics setup for aggregate traffic and performance reporting; local previews do not load analytics.
 
 ```sh
 npm test
@@ -39,4 +39,4 @@ For updates, transfer only `dist/` into a new staging folder; retain the stable 
 
 The platform's installed and retained `site_sharing.py` snapshots register this game as an explicitly public catalog entry, so ordinary platform configuration reconciliation preserves it. Retain that registration when upgrading the hosting platform. Other sites' settings remain unchanged.
 
-See [DESIGN.md](DESIGN.md) for the design and [deployment/VERIFICATION.md](deployment/VERIFICATION.md) for release verification.
+See [DESIGN.md](DESIGN.md) for the design, [deployment/VERIFICATION.md](deployment/VERIFICATION.md) for release verification and [deployment/ANALYTICS.md](deployment/ANALYTICS.md) for accessing traffic reports.

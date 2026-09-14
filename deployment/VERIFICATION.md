@@ -23,7 +23,7 @@ Production build identifier: `0a0494fe6ff0`. Released via the existing Cloudflar
 | Directory | Inventory and snapshot agree at 11 apps, new rendered card occurs once and old links preserved. The active directory is the deployment dashboard; apex already serves the branded site and was preserved |
 | Browser console | Fresh final page load has no errors. Cloudflare's formerly injected analytics beacon was blocked by CSP; `Cache-Control: public, no-cache, no-transform` now prevents its injection |
 
-The no-transform behavior follows [Cloudflare Web Analytics documentation](https://developers.cloudflare.com/web-analytics/faq/). The application has no analytics dependency.
+The initial release's no-transform behavior followed [Cloudflare Web Analytics documentation](https://developers.cloudflare.com/web-analytics/faq/). This initial analytics setting is superseded by the requested instrumentation update below.
 
 ## Operational record
 
@@ -43,3 +43,7 @@ This release contains 48 puzzles per grade (192 total), avoiding the 24 most rec
 ## Visual adjustment — 2026-09-13 Pacific
 
 Removed the light green target-number underline at Wissam's request. Build `33908907c415` was published and verified on the real hostname: the target's `::after` content is `none`. Only the stylesheet and versioned page were replaced; backup `/home/wissamka/public-sites/lecompteestbon/before-remove-underline-20260914T001653Z`.
+
+## Traffic instrumentation — 2026-09-13 Pacific
+
+Build `7dbff521d7ae` enables the domain's existing Cloudflare Web Analytics beacon for this app and updates both language privacy notices. Nginx configuration passed validation and was reloaded. The public browser loaded exactly one beacon, posted `/cdn-cgi/rum?` successfully with HTTP 204 and rendered four starting tiles. No duplicate manual snippet was added. Dashboard totals were not verified because the browser was signed out and the existing deployment token lacks analytics read access. See [ANALYTICS.md](ANALYTICS.md) for report access, definitions and limits. Backup: `/home/wissamka/public-sites/lecompteestbon/before-analytics-20260914T002124Z`.

@@ -19,7 +19,7 @@ const words = {
     limitError: 'Ce résultat dépasse la limite de ce niveau :', thinking: 'Je cherche une piste…', noPath: 'Avec ces choix, la cible n’est plus accessible. Annulez un calcul ou recommencez pour explorer une autre piste.', workerError: 'La recherche a pris trop de temps. Réessayez, ou annulez un calcul pour explorer une autre piste.',
     strategy: 'Pour la dernière étape, essayez de construire ces deux nombres :', firstMove: 'Une piste pour votre prochain calcul :', solution: 'Un chemin possible', reveal: 'Voir une solution', solutionFromStart: 'Depuis les nombres du départ :',
     noTiles: 'Il reste un nombre. Annulez un calcul pour essayer un autre chemin.', distance: 'Écart avec la cible :',
-    footer: 'Les grandes idées commencent par de petits calculs.', local: 'Gratuit · Sans compte · Progression sur cet appareil', privacy: 'Vos résultats restent dans ce navigateur.',
+    footer: 'Les grandes idées commencent par de petits calculs.', local: 'Gratuit · Sans compte · Progression sur cet appareil', privacy: 'Votre progression reste dans ce navigateur. Cloudflare mesure les visites sans cookies de suivi.',
     loadError: 'Le jeu n’a pas pu charger. Vérifiez votre connexion, puis réessayez.', retry: 'Réessayer', selected: 'sélectionné', tile: 'Nombre', mode: 'Mode de jeu', moves: 'calculs', finished: 'Défi terminé',
   },
   en: {
@@ -40,7 +40,7 @@ const words = {
     limitError: 'That result exceeds this level’s limit:', thinking: 'Looking for a way forward…', noPath: 'The target is no longer reachable with these choices. Undo a calculation or start over to try another path.', workerError: 'The search took too long. Try again, or undo a calculation to explore another path.',
     strategy: 'For your final move, try building these two numbers:', firstMove: 'One idea for your next move:', solution: 'One possible path', reveal: 'See a solution', solutionFromStart: 'From the starting numbers:',
     noTiles: 'One number left. Undo a calculation to try another path.', distance: 'Distance from the target:',
-    footer: 'Big ideas start with small calculations.', local: 'Free · No account · Progress on this device', privacy: 'Your results stay in this browser.',
+    footer: 'Big ideas start with small calculations.', local: 'Free · No account · Progress on this device', privacy: 'Your progress stays in this browser. Cloudflare measures visits without tracking cookies.',
     loadError: 'The game couldn’t load. Check your connection and try again.', retry: 'Try again', selected: 'selected', tile: 'Number', mode: 'Game mode', moves: 'moves', finished: 'Challenge complete',
   },
 };

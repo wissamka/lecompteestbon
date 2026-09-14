@@ -4,6 +4,8 @@ Status: implemented and publicly deployed, 2026-09-13 (Pacific). Live at https:/
 
 Delivered: French default with English switch, four grade levels, all four operations, 192 verified puzzles, current-board hints, undo/restart, optional timer, opt-in sound, local progress and responsive touch/keyboard controls. The private source repository is https://github.com/wissamka/lecompteestbon. The existing public Cloudflare Tunnel serves the isolated VPS app without authentication. The existing apex now serves the branded website, so the game is listed in the live deployment dashboard inventory; the legacy directory artifact is also maintained.
 
+Follow-up on 2026-09-13: removed the light green target underline and enabled aggregate Cloudflare traffic analytics at Wissam's request. Visits, page views, traffic sources, devices and performance are reported; exact individual people and game-specific actions are not measured. Progress remains in the browser. See [analytics access and limits](deployment/ANALYTICS.md).
+
 ## Confirmed brief
 
 Build a number-puzzle application inspired by Le Compte est Bon: combine a supplied set of numbers with addition, subtraction, multiplication and division to reach a target. Provide four levels for U.S. grades 3, 4, 5 and 6+. Plan the design first, then build and deploy to **https://lecompteestbon.wissamkazan.ai/** using the existing VPS publishing skill. Preserve this exact hostname, corrected by Wissam on 2026-09-13.
