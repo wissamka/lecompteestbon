@@ -1,0 +1,10 @@
+dist/
+node_modules/
+.playwright-cli/
+test-results/
+.env*
+.DS_Store
+*.tar.gz
+deployment/*-evidence.json
+__pycache__/
+*.pyc
