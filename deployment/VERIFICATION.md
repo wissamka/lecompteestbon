@@ -39,3 +39,7 @@ The no-transform behavior follows [Cloudflare Web Analytics documentation](https
 ## Practical limits
 
 This release contains 48 puzzles per grade (192 total), avoiding the 24 most recent puzzles per level in the browser. Progress is local to the browser/device; there is no cloud synchronization. School-year difficulty is initial product tuning. Browser checks used Chrome on the Mac with responsive viewport emulation; no physical phone or Safari test is claimed. The help dialog contains the worked tutorial, available from the header.
+
+## Visual adjustment — 2026-09-13 Pacific
+
+Removed the light green target-number underline at Wissam's request. Build `33908907c415` was published and verified on the real hostname: the target's `::after` content is `none`. Only the stylesheet and versioned page were replaced; backup `/home/wissamka/public-sites/lecompteestbon/before-remove-underline-20260914T001653Z`.
