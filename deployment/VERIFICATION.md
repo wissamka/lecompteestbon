@@ -47,3 +47,13 @@ Removed the light green target-number underline at Wissam's request. Build `3390
 ## Traffic instrumentation — 2026-09-13 Pacific
 
 Build `7dbff521d7ae` enables the domain's existing Cloudflare Web Analytics beacon for this app and updates both language privacy notices. Nginx configuration passed validation and was reloaded. The public browser loaded exactly one beacon, posted `/cdn-cgi/rum?` successfully with HTTP 204 and rendered four starting tiles. No duplicate manual snippet was added. Dashboard totals were not verified because the browser was signed out and the existing deployment token lacks analytics read access. See [ANALYTICS.md](ANALYTICS.md) for report access, definitions and limits. Backup: `/home/wissamka/public-sites/lecompteestbon/before-analytics-20260914T002124Z`.
+
+## Tailnet 404 repair — 2026-09-28 Pacific
+
+At 2026-09-29 02:56 UTC, normal Mac DNS resolved the hostname to `100.94.211.41` and Caddy returned 404. Public DNS returned Cloudflare addresses and a request pinned to the public address returned the game with HTTP 200. The nginx game container was healthy and returned 200 on loopback port 18087.
+
+Cause: the split-DNS Corefile included the game in its private-address overrides, but `~/.config/siteplat/private-routes.caddy` had no corresponding game handler. The DNS generator derives all hosts from the sharing catalog; it does not create Caddy routes. The Corefile's modification time was September 16 04:45 UTC, after the initial game publication; this is not proof of the exact outage start or who changed it.
+
+Added only an exact-host reverse proxy to port 18087 and an HTTP-to-HTTPS redirect, using `repair-tailnet-route.py`. The script takes the existing deployment lock, backs up, validates/reloads Caddy and rolls back if validation or the game response fails. Backup: `/home/wissamka/.config/siteplat/private-routes.before-lecompteestbon-20260929T025832Z.caddy`. Public DNS, Cloudflare ingress/access, game assets and other route blocks were unchanged.
+
+Verified through normal Mac DNS: HTTPS 200, HTTP 308, game renders, grade 6 produces six tiles, no failed browser responses or JavaScript errors. Rechecked the public Cloudflare route: HTTP 200 with the game. Preserve this exact-host handler when maintaining the private router; catalog registration and DNS overrides alone are insufficient.

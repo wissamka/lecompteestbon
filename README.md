@@ -37,6 +37,8 @@ The app is a static production artifact served by a dedicated nginx container on
 
 For updates, transfer only `dist/` into a new staging folder; retain the stable `site/` mount directory, back up changed files, replace assets and then HTML atomically, and verify real HTTPS/browser access. Existing DNS and access settings should be reused. Tokens remain on the VPS and are not copied into this repository.
 
+Tailscale split DNS also maps the game to the VPS private address. Its exact-host Caddy route in `~/.config/siteplat/private-routes.caddy` must be retained alongside the public tunnel route; otherwise Tailscale visitors receive a 404 even when public access works. See `deployment/repair-tailnet-route.py` and the September 28 verification record.
+
 The platform's installed and retained `site_sharing.py` snapshots register this game as an explicitly public catalog entry, so ordinary platform configuration reconciliation preserves it. Retain that registration when upgrading the hosting platform. Other sites' settings remain unchanged.
 
 See [DESIGN.md](DESIGN.md) for the design, [deployment/VERIFICATION.md](deployment/VERIFICATION.md) for release verification and [deployment/ANALYTICS.md](deployment/ANALYTICS.md) for accessing traffic reports.

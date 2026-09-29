@@ -19,3 +19,7 @@ On 2026-09-14 00:21 UTC (September 13 Pacific), production build `7dbff521d7ae` 
 A browser visit to the public hostname loaded exactly one Cloudflare beacon and successfully posted to `/cdn-cgi/rum?` with HTTP **204**; the game rendered its four starting tiles. This verifies collection transport, not the dashboard's displayed totals. The dashboard browser was signed out, and the existing deployment token could not read the analytics API. Account-specific totals and any geographic collection exclusions were not inspected; token permissions were not expanded.
 
 Backup before this change: `/home/wissamka/public-sites/lecompteestbon/before-analytics-20260914T002124Z`. The existing public route and private repository remain in use.
+
+## Tailscale path — verified 2026-09-28
+
+The current split-DNS configuration sends Tailscale clients directly through Caddy to nginx. These visits bypass Cloudflare's automatic beacon injection and are therefore not included in the Web Analytics page-view reports. Public internet visits continue through Cloudflare and use the existing analytics setup. The missing Caddy route was repaired on September 28; see `VERIFICATION.md`.
